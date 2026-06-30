@@ -1,0 +1,148 @@
+.about-page {
+  padding: 0 9%;
+  color: var(--link-color);
+}
+
+/* عنوان صفحه */
+
+.about-title {
+  padding: 60px 0 40px;
+  text-align: right;
+}
+
+.about-title h1 {
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--btn1-bg);
+  margin-bottom: 12px;
+}
+
+.about-title p {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* داستان من */
+
+.about-story {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  padding: 60px 0;
+}
+
+.story-img {
+  flex-shrink: 0;
+  width: 280px;
+  height: 280px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.story-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-text {
+  flex: 1;
+}
+
+.story-text h2 {
+  font-size: 28px;
+  color: var(--btn1-bg);
+  margin-bottom: 20px;
+}
+
+.story-text p {
+  font-size: 16px;
+  line-height: 1.9;
+  margin-bottom: 16px;
+  text-align: justify;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* تایم لاین افقی */
+
+.about-timeline {
+  padding: 60px 0;
+}
+
+.about-timeline h2 {
+  font-size: 28px;
+  color: var(--btn1-bg);
+  margin-bottom: 50px;
+  text-align: right;
+}
+
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  padding-top: 10px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  right: 0;
+  left: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.timeline-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  gap: 10px;
+}
+
+.timeline-year {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--btn1-bg);
+  box-shadow: 0 0 12px rgba(255, 106, 28, 0.5);
+  z-index: 1;
+}
+
+.timeline-item p {
+  font-size: 14px;
+  max-width: 160px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* CV section */
+
+.about-cv {
+  padding: 60px 0 100px;
+  text-align: center;
+}
+
+.about-cv h2 {
+  font-size: 28px;
+  color: var(--btn1-bg);
+  margin-bottom: 12px;
+}
+
+.about-cv p {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 24px;
+}
+
+.cv-btn {
+  display: inline-block;
+}
