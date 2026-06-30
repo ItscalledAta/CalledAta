@@ -24,13 +24,6 @@
 
 /* base */
 
-@keyframes show-content {
-  100% {
-    visibility: visible;
-    opacity: 1;
-  }
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -111,10 +104,6 @@ a {
   align-items: center;
   z-index: 100;
   box-sizing: border-box;
-  visibility: hidden;
-  opacity: 0;
-  animation: show-content 1.5s linear forwards;
-  animation-delay: 1.2s;
 }
 
 .header .navbar .logo {
@@ -123,7 +112,7 @@ a {
 }
 
 .header .navbar .logo img {
-  height: 50px;
+  height: 70px;
   width: auto;
   object-fit: contain;
 }
@@ -181,10 +170,6 @@ a {
   height: calc(100vh - var(--nav-h));
   padding: 0 9%;
   color: var(--link-color);
-  visibility: hidden;
-  opacity: 0;
-  animation: show-content 1.5s linear forwards;
-  animation-delay: 1.6s;
   gap: 60px;
   justify-content: space-between;
   position: relative;
@@ -822,7 +807,7 @@ a {
 }
 
 .footer .logo img {
-  height: 32px;
+  height: 70px;
   width: auto;
 }
 

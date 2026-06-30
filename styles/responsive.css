@@ -406,6 +406,23 @@
   }
 }
 
+/* FORM FIX */
+
+.form-group input,
+.form-group textarea {
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .contact-wrapper {
+    width: 100%;
+  }
+
+  .contact-form {
+    width: 100%;
+  }
+}
+
 /* FOOTER */
 
 @media (max-width: 600px) {
