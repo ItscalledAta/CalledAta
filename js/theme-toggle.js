@@ -5,14 +5,15 @@ function setupThemeToggle() {
 
   const root = document.documentElement;
 
-  toggle.addEventListener("click", () => {
-    const isLight = root.getAttribute("data-theme") === "light";
-    if (isLight) {
-      root.removeAttribute("data-theme");
-      localStorage.setItem("theme", "dark");
-    } else {
+  toggle.checked = root.getAttribute("data-theme") === "light";
+
+  toggle.addEventListener("change", () => {
+    if (toggle.checked) {
       root.setAttribute("data-theme", "light");
       localStorage.setItem("theme", "light");
+    } else {
+      root.removeAttribute("data-theme");
+      localStorage.setItem("theme", "dark");
     }
   });
 }

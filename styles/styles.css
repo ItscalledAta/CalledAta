@@ -30,7 +30,8 @@
   --border-soft: rgba(255, 255, 255, 0.08);
   --icon-circle-bg: #ffffff;
   --transition-theme: 0.4s ease;
-  /* --- امضای بخش خدمات (ترمینال) --- */
+  --hero-circle-bg: #1f242d;
+  /* بخش خدمات (ترمینال) */
   --terminal-bg: #14171d;
   --terminal-bar-bg: #1c2028;
   --terminal-border: rgba(255, 255, 255, 0.08);
@@ -56,6 +57,8 @@
   --surface-strong: #ffffff;
   --surface-strong-2: #f1ede6;
   --border-soft: rgba(35, 40, 48, 0.1);
+  --hero-circle-bg: #f4f2ee;
+  /* بخش خدمات ( ترمینال ) */
   --terminal-bg: #f4f2ee;
   --terminal-bar-bg: #e9e6df;
   --terminal-border: rgba(35, 40, 48, 0.1);
@@ -226,53 +229,95 @@ a {
 /* دکمه حالت تاریک و روشن */
 
 .theme-toggle {
-  --size: 40px;
-  width: var(--size);
-  height: var(--size);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--border-soft);
-  border-radius: 50%;
-  background: var(--surface);
-  cursor: pointer;
-  margin-left: 20px;
   position: relative;
-  overflow: hidden;
-  transition: border-color 0.3s ease, transform 0.3s ease;
+  margin-left: 20px;
 }
 
-.theme-toggle:hover {
-  border-color: rgba(255, 106, 28, 0.4);
-  transform: translateY(-2px);
-}
-
-.theme-toggle svg {
-  width: 20px;
-  height: 20px;
-  stroke: var(--btn1-bg);
-  fill: none;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  transition: transform 0.5s ease, opacity 0.3s ease;
-}
-
-.theme-toggle .icon-moon {
+.theme-toggle input {
   position: absolute;
-  transform: scale(0) rotate(-90deg);
   opacity: 0;
+  pointer-events: none;
 }
 
-[data-theme="light"] .theme-toggle .icon-sun {
-  transform: scale(0) rotate(90deg);
-  opacity: 0;
+.theme-toggle label {
+  width: 54px;
+  height: 30px;
+  display: block;
+  background: var(--surface-strong-2);
+  border: 1px solid var(--border-soft);
+  border-radius: 999px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.35s ease;
 }
 
-[data-theme="light"] .theme-toggle .icon-moon {
-  position: static;
-  transform: scale(1) rotate(0deg);
+/* دایره‌ی متحرک */
+.theme-toggle label::before {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 3px;
+  top: 2px;
+  border-radius: 50%;
+  background: var(--btn1-bg);
+  transition: 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}
+
+/* آیکون‌های sun/moon */
+.toggle-icon {
+  position: absolute;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  z-index: 0;
+}
+
+.icon-sun {
+  right: 6px;
   opacity: 1;
+}
+
+.icon-moon {
+  left: 6px;
+  opacity: 0;
+  transform: translateY(-50%) scale(0.7);
+}
+
+/* حالت چک‌شده = لایت مود */
+.theme-toggle input:checked + label {
+  background: rgba(255, 106, 28, 0.18);
+  border-color: rgba(255, 106, 28, 0.4);
+}
+
+.theme-toggle input:checked + label::before {
+  transform: translateX(24px);
+}
+
+.theme-toggle input:checked + label .icon-sun {
+  opacity: 0;
+  transform: translateY(-50%) scale(0.7);
+}
+
+.theme-toggle input:checked + label .icon-moon {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+/* حالت‌های تعاملی */
+.theme-toggle label:hover::before {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.theme-toggle input:focus + label {
+  outline: 3px solid rgba(255, 106, 28, 0.25);
+  outline-offset: 4px;
 }
 
 /* hero section */
@@ -295,7 +340,7 @@ a {
   padding: 3%;
   background: rgba(255, 255, 255, 0);
   border-radius: 16px;
-  box-shadow: 14px 14px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.377);
   backdrop-filter: blur(15.2px);
   -webkit-backdrop-filter: blur(15.2px);
 }
@@ -460,13 +505,12 @@ a {
   z-index: 1;
 }
 
-.hero-img .img-box .img-item img {
+.hero-img .img-box .img-item .hero-illustration {
   position: absolute;
-  top: 30px;
+  top: 0;
+  width: 100%;
+  height: 100%;
   display: block;
-  width: 85%;
-  object-fit: cover;
-  mix-blend-mode: lighten;
 }
 
 /* انیمیشین لود صفحه */
@@ -547,51 +591,40 @@ a {
 }
 
 .skill-card {
-  /* From https://css.glass */
   background: var(--surface);
-  border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(9.1px);
   -webkit-backdrop-filter: blur(9.1px);
   border: 1px solid var(--border-soft);
-  border-radius: 16px;
-  padding: 28px 20px;
+  border-radius: 20px;
+  padding: 32px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-  transition: 0.3s ease;
+  gap: 14px;
   cursor: default;
   opacity: 0;
   transform: translateY(24px);
   transition:
     opacity 0.4s ease,
-    transform 0.4s ease;
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
 }
 
 .skill-card.visible {
   opacity: 1;
   transform: translateY(0);
 }
-/* هر کارت دیر تر از قبلی ظاهر بشه */
-.skill-card:nth-child(1) {
-  transition-delay: 0.1s;
-}
-.skill-card:nth-child(2) {
-  transition-delay: 0.2s;
-}
-.skill-card:nth-child(3) {
-  transition-delay: 0.3s;
-}
-.skill-card:nth-child(4) {
-  transition-delay: 0.4s;
-}
-.skill-card:nth-child(5) {
-  transition-delay: 0.5s;
-}
-.skill-card:nth-child(6) {
-  transition-delay: 0.6s;
-}
+
+/* هر کارت دیرتر از قبلی ظاهر بشه */
+.skill-card:nth-child(1) { transition-delay: 0.1s; }
+.skill-card:nth-child(2) { transition-delay: 0.2s; }
+.skill-card:nth-child(3) { transition-delay: 0.3s; }
+.skill-card:nth-child(4) { transition-delay: 0.4s; }
+.skill-card:nth-child(5) { transition-delay: 0.5s; }
+.skill-card:nth-child(6) { transition-delay: 0.6s; }
 
 .skill-card:hover {
   transform: translateY(-6px);
@@ -599,17 +632,26 @@ a {
   box-shadow: 0 8px 30px rgba(255, 106, 28, 0.15);
 }
 
+/* بج دایره‌ای دور آیکون */
 .skill-icon {
-  width: 56px;
-  height: 56px;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: rgba(255, 106, 28, 0.08);
+  border: 1px solid rgba(255, 106, 28, 0.2);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.skill-card:hover .skill-icon {
+  transform: scale(1.08) rotate(-4deg);
 }
 
 .skill-icon img {
-  width: 100%;
-  height: 100%;
+  width: 34px;
+  height: 34px;
   object-fit: contain;
 }
 
@@ -628,7 +670,7 @@ a {
 }
 
 .learning-tag {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--surface);
   color: var(--text-muted);
   border-color: var(--border-soft);
 }
