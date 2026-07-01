@@ -5,12 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>درباره من | Alireza Ataie</title>
-    <link rel="shortcut icon" href="./images/pictures/logo.png" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="./images/pictures/logo.png"
+      type="image/x-icon"
+    />
+    <script>
+      (function () {
+        const saved = localStorage.getItem("theme");
+        const prefersLight = window.matchMedia(
+          "(prefers-color-scheme: light)",
+        ).matches;
+        const theme = saved || (prefersLight ? "light" : "dark");
+        if (theme === "light")
+          document.documentElement.setAttribute("data-theme", "light");
+      })();
+    </script>
     <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles/styles.css" />
     <link rel="stylesheet" href="./styles/about.css" />
-    <link rel="stylesheet" href="./styles/hamburger.css">
-    <link rel="stylesheet" href="./styles/responsive.css">
+    <link rel="stylesheet" href="./styles/hamburger.css" />
+    <link rel="stylesheet" href="./styles/responsive.css" />
   </head>
   <body>
     <div class="loader-overlay">
@@ -99,6 +114,7 @@
     <div id="footer"></div>
     <script src="./js/navbar.js"></script>
     <script src="./js/loader.js"></script>
+    <script src="./js/theme-toggle.js"></script>
     <script src="./js/main.js"></script>
   </body>
 </html>

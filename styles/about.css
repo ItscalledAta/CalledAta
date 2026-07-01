@@ -19,7 +19,7 @@
 
 .about-title p {
   font-size: 18px;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-secondary);
 }
 
 /* داستان من */
@@ -60,7 +60,7 @@
   line-height: 1.9;
   margin-bottom: 16px;
   text-align: justify;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-secondary);
 }
 
 /* تایم لاین افقی */
@@ -91,7 +91,7 @@
   right: 0;
   left: 0;
   height: 2px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--border-soft);
 }
 
 .timeline-item {
@@ -106,7 +106,7 @@
 
 .timeline-year {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-muted);
 }
 
 .timeline-dot {
@@ -121,7 +121,7 @@
 .timeline-item p {
   font-size: 14px;
   max-width: 160px;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-secondary);
 }
 
 /* CV section */
@@ -139,7 +139,7 @@
 
 .about-cv p {
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-secondary);
   margin-bottom: 24px;
 }
 

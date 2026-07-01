@@ -5,10 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alireza Ataie</title>
-    <link rel="shortcut icon" href="./images/pictures/logo.png" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="./images/pictures/logo.png"
+      type="image/x-icon"
+    />
+    <script>
+      (function () {
+        const saved = localStorage.getItem("theme");
+        const prefersLight = window.matchMedia(
+          "(prefers-color-scheme: light)",
+        ).matches;
+        const theme = saved || (prefersLight ? "light" : "dark");
+        if (theme === "light")
+          document.documentElement.setAttribute("data-theme", "light");
+      })();
+    </script>
     <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles/styles.css" />
-    <link rel="stylesheet" href="./styles/hamburger.css">
+    <link rel="stylesheet" href="./styles/hamburger.css" />
     <link rel="stylesheet" href="./styles/responsive.css" />
   </head>
   <body>
@@ -30,8 +45,8 @@
           <span class="orange">JavaScript</span> و
           <span class="orange">WordPress</span> ابزارهایی هستند که هر روز با
           آن‌ها ایده‌ها را به رابط‌های کاربری زنده و کاربردی تبدیل می‌کنم. هنوز
-          وارد دنیای بک‌اند نشده‌ام و ادعایی هم در این مورد ندارم، اما مسیرم
-          را به‌خوبی می‌شناسم و با اشتیاق هر روز یک قدم به آن نزدیک‌تر می‌شوم.
+          وارد دنیای بک‌اند نشده‌ام و ادعایی هم در این مورد ندارم، اما مسیرم را
+          به‌خوبی می‌شناسم و با اشتیاق هر روز یک قدم به آن نزدیک‌تر می‌شوم.
         </p>
         <div class="btn-sci">
           <a href="#" class="btn">مشاهده رزومه</a>
@@ -133,88 +148,95 @@
       </div>
     </section>
     <section id="services" class="services">
-  <h2 class="section-title">خدمات</h2>
-  <div class="services-grid">
+      <h2 class="section-title">خدمات</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="terminal-bar">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+            <span class="terminal-title">service-01.js</span>
+          </div>
+          <div class="terminal-body">
+            <p class="terminal-comment">طراحی سایت با وردپرس</p>
+            <p class="terminal-line">
+              <span class="terminal-key">const</span> site =
+              <span class="terminal-func">build</span>(<span
+                class="terminal-string"
+                >"wordpress"</span
+              >);
+            </p>
+            <p class="terminal-desc">
+              ساخت و شخصی‌سازی سایت با وردپرس و المنتور، متناسب با نیاز شما.
+            </p>
+          </div>
+        </div>
 
-    <div class="service-card">
-      <div class="terminal-bar">
-        <span class="terminal-dot red"></span>
-        <span class="terminal-dot yellow"></span>
-        <span class="terminal-dot green"></span>
-        <span class="terminal-title">service-01.js</span>
-      </div>
-      <div class="terminal-body">
-        <p class="terminal-comment">طراحی سایت با وردپرس</p>
-        <p class="terminal-line">
-          <span class="terminal-key">const</span> site =
-          <span class="terminal-func">build</span>(<span class="terminal-string">"wordpress"</span>);
-        </p>
-        <p class="terminal-desc">
-          ساخت و شخصی‌سازی سایت با وردپرس و المنتور، متناسب با نیاز شما.
-        </p>
-      </div>
-    </div>
+        <div class="service-card">
+          <div class="terminal-bar">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+            <span class="terminal-title">service-02.js</span>
+          </div>
+          <div class="terminal-body">
+            <p class="terminal-comment">کدنویسی صفحات وب</p>
+            <p class="terminal-line">
+              <span class="terminal-key">function</span>
+              <span class="terminal-func">code</span>(html, css, js) {}
+            </p>
+            <p class="terminal-desc">
+              پیاده‌سازی صفحات با HTML، CSS و JavaScript خالص.
+            </p>
+          </div>
+        </div>
 
-    <div class="service-card">
-      <div class="terminal-bar">
-        <span class="terminal-dot red"></span>
-        <span class="terminal-dot yellow"></span>
-        <span class="terminal-dot green"></span>
-        <span class="terminal-title">service-02.js</span>
-      </div>
-      <div class="terminal-body">
-        <p class="terminal-comment">کدنویسی صفحات وب</p>
-        <p class="terminal-line">
-          <span class="terminal-key">function</span>
-          <span class="terminal-func">code</span>(html, css, js) {}
-        </p>
-        <p class="terminal-desc">
-          پیاده‌سازی صفحات با HTML، CSS و JavaScript خالص.
-        </p>
-      </div>
-    </div>
+        <div class="service-card">
+          <div class="terminal-bar">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+            <span class="terminal-title">service-03.js</span>
+          </div>
+          <div class="terminal-body">
+            <p class="terminal-comment">سئو پایه</p>
+            <p class="terminal-line">
+              <span class="terminal-key">await</span>
+              <span class="terminal-func">optimize</span>(<span
+                class="terminal-string"
+                >"seo"</span
+              >);
+            </p>
+            <p class="terminal-desc">
+              بهینه‌سازی ساختار و محتوا برای دیده‌شدن بهتر در جستجو.
+            </p>
+          </div>
+        </div>
 
-    <div class="service-card">
-      <div class="terminal-bar">
-        <span class="terminal-dot red"></span>
-        <span class="terminal-dot yellow"></span>
-        <span class="terminal-dot green"></span>
-        <span class="terminal-title">service-03.js</span>
+        <div class="service-card">
+          <div class="terminal-bar">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+            <span class="terminal-title">service-04.js</span>
+          </div>
+          <div class="terminal-body">
+            <p class="terminal-comment">لندینگ پیج و پورتفولیو</p>
+            <p class="terminal-line">
+              <span class="terminal-key">export</span>
+              <span class="terminal-func">render</span>(<span
+                class="terminal-string"
+                >"landing"</span
+              >)
+              <span class="cursor-blink"></span>
+            </p>
+            <p class="terminal-desc">
+              طراحی صفحات شخصی و فرود ساده، سریع و کاربرپسند.
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="terminal-body">
-        <p class="terminal-comment">سئو پایه</p>
-        <p class="terminal-line">
-          <span class="terminal-key">await</span>
-          <span class="terminal-func">optimize</span>(<span class="terminal-string">"seo"</span>);
-        </p>
-        <p class="terminal-desc">
-          بهینه‌سازی ساختار و محتوا برای دیده‌شدن بهتر در جستجو.
-        </p>
-      </div>
-    </div>
-
-    <div class="service-card">
-      <div class="terminal-bar">
-        <span class="terminal-dot red"></span>
-        <span class="terminal-dot yellow"></span>
-        <span class="terminal-dot green"></span>
-        <span class="terminal-title">service-04.js</span>
-      </div>
-      <div class="terminal-body">
-        <p class="terminal-comment">لندینگ پیج و پورتفولیو</p>
-        <p class="terminal-line">
-          <span class="terminal-key">export</span>
-          <span class="terminal-func">render</span>(<span class="terminal-string">"landing"</span>)
-          <span class="cursor-blink"></span>
-        </p>
-        <p class="terminal-desc">
-          طراحی صفحات شخصی و فرود ساده، سریع و کاربرپسند.
-        </p>
-      </div>
-    </div>
-
-  </div>
-</section>
+    </section>
     <section id="contact-me" class="contact">
       <h2 class="section-title">بیا با هم کار کنیم</h2>
 
@@ -308,6 +330,7 @@
     </section>
     <div id="footer"></div>
     <script src="./js/navbar.js"></script>
+    <script src="./js/theme-toggle.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/loader.js"></script>
     <script src="./js/skills-animation.js"></script>

@@ -24,9 +24,9 @@ function setActiveNavLink() {
   });
 }
 
-// loadComponent("header", "./components/header.html").then(setActiveNavLink);
 loadComponent("header", "./components/header.html").then(() => {
   setActiveNavLink();
   setupMobileMenu();
+  setupThemeToggle();
 });
 loadComponent("footer", "./components/footer.html");
